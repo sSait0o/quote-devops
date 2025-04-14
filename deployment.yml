@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quoteapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quoteapi
+  template:
+    metadata:
+      labels:
+        app: quoteapi
+    spec:
+      containers:
+        - name: quoteapi
+          image: votreIdDockerHub/quoteapi:1
+          ports:
+            - containerPort: 8080
